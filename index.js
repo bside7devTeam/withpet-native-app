@@ -1,5 +1,5 @@
 /**
- * @format
+ * @todo 투두봇 테스트
  */
 
 import {AppRegistry} from 'react-native';
