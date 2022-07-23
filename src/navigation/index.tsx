@@ -3,6 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {normalize, normalizeHeight} from '@helper/ResponsiveSize';
 import {Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import HomeScreen from '@screens/Home';
+import AdoptionNoticeScreen from '@screens/AdoptionNotice';
 
 const Tap = createBottomTabNavigator();
 
@@ -92,6 +93,11 @@ const BottomTabNav = () => {
         name="Home"
         options={{tabBarLabel: '홈', title: '홈'}}
         component={HomeScreen}
+      />
+      <Tap.Screen
+        name="AdoptionNotice"
+        options={{tabBarLabel: '입양 공고', title: '입양 공고'}}
+        component={AdoptionNoticeScreen}
       />
     </Tap.Navigator>
   );
