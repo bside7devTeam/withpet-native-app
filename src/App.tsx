@@ -1,8 +1,9 @@
-import React, {useRef} from 'react';
+import React, {useRef, useEffect} from 'react';
 import {throttle} from 'lodash';
 import Navi from '@navigation/index';
 import {NavigationContainer} from '@react-navigation/native';
 import {navigationRef} from '@helper/RootNavigation';
+import RNBootSplash from 'react-native-bootsplash';
 
 const App: React.FC = () => {
   const routeNameRef = useRef();
@@ -10,9 +11,10 @@ const App: React.FC = () => {
   return (
     <NavigationContainer
       ref={navigationRef}
-      onReady={() =>
-        (routeNameRef.current = navigationRef.current.getCurrentRoute().name)
-      }
+      onReady={() => {
+        RNBootSplash.hide();
+        routeNameRef.current = navigationRef.current.getCurrentRoute().name;
+      }}
       onStateChange={throttle(async () => {
         const previousRouteName = routeNameRef.current;
         const currentRouteName = navigationRef.current.getCurrentRoute().name;
